@@ -1,52 +1,76 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公告</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+<meta charset="utf-8">
+<meta name="description" content="A simple HTML5 Template">
+<meta name="author" content="dron">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="images/index.css">
+<title>水果忍者HTML5网页版在线游戏</title>
+<!--[if lt IE 9]><script>document.createElement("canvas");</script><![endif]-->
+<style>
+/* 公告窗口样式 */
+#announcement {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
 
-        .announcement-container {
-            max-width: 600px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-        }
+#announcement .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
 
-        h1 {
-            color: #4285f4;
-        }
-
-        p {
-            margin-top: 10px;
-        }
-
-        .note {
-            color: #888;
-            font-size: 14px;
-        }
-    </style>
+#announcement .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
 </head>
 <body>
-    <div class="announcement-container">
-        <h1>😫公告</h1>
-        <p>示例页面内容升级中，恢复时间待定。</p>
-        <p>请自行搭建项目，感谢您的理解与支持。</p>
-        <p class="note"> © 2024 lctoolsweb</p>
-    </div>
+<!-- 公告窗口 -->
+<div id="announcement">
+    <span class="close">×</span>
+    <p>网站正在维护中，先玩会水果忍者罢</p>
+    <button class="btn">确定</button>
+</div>
+
+<div id="extra"></div>
+<em> -- Fruit Ninja -- </em>
+<em> The game is developed by the Baidu JS team, </em>
+<em> we provide the source in git: https://github.com/ChineseDron/fruit-ninja </em>
+<em> follow me on weibo http://weibo.com/baidujs </em>
+<em> or learn more, to see http://tangram.baidu.com </em>
+<canvas id="view" width="640" height="480"></canvas>
+<div id="browser"></div>
+<script src="scripts/all.js"></script>
+<script>
+// 关闭公告窗口
+document.querySelector('#announcement .close').addEventListener('click', function() {
+    document.getElementById('announcement').style.display = 'none';
+});
+
+// 确定按钮点击事件，关闭公告窗口
+document.querySelector('#announcement .btn').addEventListener('click', function() {
+    document.getElementById('announcement').style.display = 'none';
+});
+</script>
 </body>
 </html>
-
